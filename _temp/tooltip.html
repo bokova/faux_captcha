@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Click Tooltip</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .captcha-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 150px);
+      gap: 10px;
+    }
+
+    .captcha-image {
+      width: 150px;
+      height: 150px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    /* Tooltip styling */
+    .tooltip {
+      position: absolute;
+      background-color: #333;
+      color: #fff;
+      padding: 5px;
+      border-radius: 5px;
+      font-size: 14px;
+      white-space: nowrap;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 100;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 10px;
+    }
+
+    .captcha-image.show-tooltip .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="captcha-grid">
+    <div class="captcha-image" data-tooltip="This is a car">
+      <img src="https://via.placeholder.com/100?text=Car" alt="Car">
+      <div class="tooltip">This is a car</div>
+    </div>
+    <div class="captcha-image" data-tooltip="This is a tree">
+      <img src="https://via.placeholder.com/100?text=Tree" alt="Tree">
+      <div class="tooltip">This is a tree</div>
+    </div>
+    <div class="captcha-image" data-tooltip="This is a dog">
+      <img src="https://via.placeholder.com/100?text=Dog" alt="Dog">
+      <div class="tooltip">This is a dog</div>
+    </div>
+  </div>
+
+  <script>
+    // Select all the images with tooltips
+    const images = document.querySelectorAll('.captcha-image');
+
+    images.forEach(image => {
+      image.addEventListener('click', () => {
+        // Hide tooltips for all images
+        images.forEach(img => img.classList.remove('show-tooltip'));
+
+        // Show the tooltip for the clicked image
+        image.classList.add('show-tooltip');
+      });
+
+      // Optionally, hide the tooltip when clicking anywhere else on the page
+      document.addEventListener('click', (event) => {
+        if (!image.contains(event.target)) {
+          image.classList.remove('show-tooltip');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

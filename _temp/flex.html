@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button and Icons Layout</title>
+  <style>
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background-color: #f4f4f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .icons {
+      display: flex;
+      gap: 10px; /* Space between images */
+    }
+    .icons img {
+      width: 24px; /* Set width for icons */
+      height: 24px; /* Set height for icons */
+    }
+    .submit-btn {
+      font-family: "Roboto Condensed", sans-serif;
+      font-weight: normal;
+      background-color: #428FF4;
+      color: white;
+      padding: 12px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+    .submit-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icons">
+      <img src="./icons/reload2.svg" alt="Reload" />
+      <img src="./icons/headphones.svg" alt="Headphones" />
+      <img src="./icons/info.svg" alt="Information" />
+    </div>
+    <button onclick="validateCaptcha()" class="submit-btn">Ověřit</button>
+  </div>
+
+  <script>
+    function validateCaptcha() {
+      // Your validation logic here
+    }
+  </script>
+</body>
+</html>
