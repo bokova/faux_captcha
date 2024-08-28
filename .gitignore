@@ -1,0 +1,23 @@
+# Ignore some directories
+_temp/
+
+# macOS specific files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# macOS system files
+Icon
+._*
+.Spotlight-V100
+.Trashes
+.DS_Store?
+._*
+.fseventsd
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.metadata_never_index
+.metadata_never_index_unless_rootfs
+
+# macOS Finder tags
+.apdisk
